@@ -28,10 +28,6 @@ public class MeshDeformerInput : MonoBehaviour
         }
     }
 
-    public void AddDeformingForce (Vector3 point, float force) {
-		Debug.DrawLine(Camera.main.transform.position, point);
-	}
-
     // Update is called once per frame
     void Update()
     {

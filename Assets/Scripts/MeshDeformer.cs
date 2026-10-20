@@ -6,6 +6,8 @@ public class MeshDeformer : MonoBehaviour
     Mesh deformingMesh;
     Vector3[] originalVertices, displacedVertices;
     Vector3[] vertexVelocities;
+    public float springForce = 20f;
+    public float damping = 5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +25,7 @@ public class MeshDeformer : MonoBehaviour
     public void AddDeformingForce(Vector3 point, float force)
     {
         Debug.DrawLine(Camera.main.transform.position, point);
+        point = transform.InverseTransformPoint(point);
         for (int i = 0; i < displacedVertices.Length; i++) {
 			AddForceToVertex(i, point, force);
 		}
@@ -39,6 +42,10 @@ public class MeshDeformer : MonoBehaviour
 
     void UpdateVertex (int i) {
 		Vector3 velocity = vertexVelocities[i];
+		Vector3 displacement = displacedVertices[i] - originalVertices[i];
+		velocity -= displacement * springForce * Time.deltaTime;
+        velocity *= 1f - damping * Time.deltaTime;
+		vertexVelocities[i] = velocity;
 		displacedVertices[i] += velocity * Time.deltaTime;
 	}
     // Update is called once per frame
