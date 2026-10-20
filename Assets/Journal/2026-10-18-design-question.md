@@ -22,4 +22,4 @@ For anyone unfamiliar, phrenology is a soundly disproven 19th century pseudoscie
 
 My idea is another character creation screen for a nonexistent videogame. Whacking and deforming a phrenology bust rolls classic dungeons and dragons style character stats with each hit. It might be nice to even have the bust teeter a bit at times. I'm unsure what the interaction will feel like. Does kicking feel like a hit? maybe another object could be swung into the head, like a bat, changing the interaction from a click to a click and drag. I suppose it could also be VR, which would make the interaction an actual punch, but I don't particularly feel like engaging with VR at this point in this prototype. There could also be a generate character button that simply plays one of a few different animations of the bust being hit, either by a visible or invisible thing.
 
-*marker* at step 6 of catlike coding deform mesh tutorial
+
