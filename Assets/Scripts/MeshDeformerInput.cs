@@ -4,6 +4,8 @@ public class MeshDeformerInput : MonoBehaviour
 {
     public float force = 1f;
     public float impulse = 10f;
+    public GameObject rightFist;
+    public GameObject leftFist;
 
     void HandleInput()
     {
@@ -13,14 +15,17 @@ public class MeshDeformerInput : MonoBehaviour
             MeshDeformer deformer = hit.collider.GetComponent<MeshDeformer>();
             if (deformer)
             {
-                // Punch in the direction the camera is looking through the cursor
-                deformer.AddDent(hit.point, inputRay.direction, force);
+                // Swing from whichever fist is on the same side of the screen as the cursor
+                GameObject fist = Input.mousePosition.x > Screen.width / 2f ? rightFist : leftFist;
+                Vector3 punchDirection = (hit.point - fist.transform.position).normalized;
+
+                deformer.AddDent(hit.point, punchDirection, force);
 
                 // Knock the head at the impact point so off-center hits make it rock
                 Rigidbody body = FindDynamicBody(deformer.transform);
                 if (body)
                 {
-                    body.AddForceAtPosition(inputRay.direction * impulse, hit.point, ForceMode.Impulse);
+                    body.AddForceAtPosition(punchDirection * impulse, hit.point, ForceMode.Impulse);
                 }
             }
         }
