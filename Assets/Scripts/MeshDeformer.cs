@@ -3,8 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter), typeof(MeshCollider))]
 public class MeshDeformer : MonoBehaviour
 {
+    [SerializeField] GameController gameController;
     Mesh deformingMesh;
-    Vector3[] displacedVertices;
+    public Vector3[] displacedVertices;
     MeshCollider meshCollider;
     public float radius = 0.1f;
     public float depth = 0.02f;

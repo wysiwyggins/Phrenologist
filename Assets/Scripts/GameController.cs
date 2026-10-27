@@ -4,6 +4,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
+    public MeshDeformer meshDeformer;
+
     [Header("Stats UI")]
     [SerializeField] private GameObject uiPanel;
     public int strVal;
@@ -19,18 +21,21 @@ public class GameController : MonoBehaviour
     public int chaVal;
     [SerializeField] private TextMeshProUGUI chaText;
 
+    [Header("Inputs")]
+
+    public Vector3[] aVec3;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+    
     }
 
     public void OnPunched()
     {
-        
+        aVec3 = meshDeformer.displacedVertices; 
     }
-    
+
     // Update is called once per frame
     void Update()
     {
