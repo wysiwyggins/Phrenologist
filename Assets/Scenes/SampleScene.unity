@@ -644,6 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913766c23de7e4c5d9f63ea379271296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meshDeformer: {fileID: 0}
   uiPanel: {fileID: 1690096156}
   strVal: 0
   strText: {fileID: 1783981442}
@@ -657,6 +658,7 @@ MonoBehaviour:
   wisText: {fileID: 531138713}
   chaVal: 0
   chaText: {fileID: 662989472}
+  aVec3: []
 --- !u!1 &427022159
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,6 +2603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8206ca58adc854f4388fbef915e34230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 421839623}
+  displacedVertices: []
   radius: 0.1
   depth: 0.02
   maxDepth: 0.2
