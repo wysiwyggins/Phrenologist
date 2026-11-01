@@ -1,3 +1,3 @@
-# Readme
+# Chiromancer
 
 A (subtractive) character creator.

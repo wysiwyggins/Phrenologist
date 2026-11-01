@@ -34,4 +34,4 @@ Taking a pass to put every vertex in just one reason seems to have fixed it.
 
 I think I am calling it on the vertex stat association. Looks good, ship it. Tomorrow I'll tune the gamefeel, add the juice, all that.
 
-Builds are in [Builds/2026-10-30](../../Builds/2026-10-30/)
+Builds are in [Builds/2026-10-30](../../Builds/2026-10-30/) *OOPS, my builds folder was in .gitignore*
