@@ -6,7 +6,7 @@ A (subtractive) character creator built in Unity.
 
 ## Why
 
-This is (possibly the last) in a few experiments related to videogame character creators and associated ideas outside of games. The previous experiment was related to the association between the ideas of character and fate. This experiment is related to ideas of character and the body, as in the pseudoscience of phrenology/physiognomy. This association seems to come later than the ideas of character and fate used by the mantic reader or fortune teller, but both make similar claims of inherited authority that seems to flail from one to the other, struggling to adapt to changing conceptions of self, mind and history.
+This is (possibly the last) in a few experiments related to videogame character creators and associated ideas outside of games. The previous experiment was related to the association between the ideas of character and fate. This experiment is related to ideas of character and the body, as in the pseudoscience of phrenology/physiognomy. This association seems to come later than the ideas of character and fate used by the mantic reader or fortune teller, but both make similar claims of inherited authority for their claims that seem to flail from one source to another, struggling to adapt to changing conceptions of self, mind and history.
 
 Also it's just kind of funny to punch a poor, defenseless bust.
 
