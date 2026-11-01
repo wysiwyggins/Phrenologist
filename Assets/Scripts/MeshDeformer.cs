@@ -8,7 +8,6 @@ public class MeshDeformer : MonoBehaviour
     [SerializeField] GameController gameController;
     Mesh deformingMesh;
     public Vector3[] displacedVertices;
-    // Undented positions, so GameController can measure how far each vertex has been pushed
     Vector3[] originalVertices;
     MeshCollider meshCollider;
     public float radius = 0.1f;
@@ -16,7 +15,6 @@ public class MeshDeformer : MonoBehaviour
     public float maxDepth = 0.2f;
 
     [Header("Stat Sensitivity")]
-    // Stat points lost for one dent landing squarely on a region
     public float pointsPerDent = 3f;
     // Scales pointsPerDent for each stat, so 2 makes that stat drop twice as fast and 0 makes it ignore dents
     public float strengthMultiplier = 1f;
@@ -27,12 +25,12 @@ public class MeshDeformer : MonoBehaviour
     public float charismaMultiplier = 1f;
 
     [Header("Region Mapping")]
-    // Logs the indices of vertices each dent moves, for mapping head regions to vertices
     public bool logChangedVertices = false;
     // Indices moved by every dent since the last clear, so several clicks can paint out a region
     HashSet<int> recordedVertices = new HashSet<int>();
 
-    void Start()
+    // Awake rather than Start so the mesh is ready before GameController.Start resets it
+    void Awake()
     {
         deformingMesh = GetComponent<MeshFilter>().mesh;
         displacedVertices = deformingMesh.vertices;
@@ -51,7 +49,6 @@ public class MeshDeformer : MonoBehaviour
 
         List<int> changed = new List<int>();
         for (int i = 0; i < displacedVertices.Length; i++) {
-            // Only vertices within radius (world units) are affected, fading to zero at the edge
             float distance = (displacedVertices[i] - point).magnitude * uniformScale;
             if (distance > radius) {
                 continue;
@@ -74,7 +71,6 @@ public class MeshDeformer : MonoBehaviour
         }
     }
 
-    // Puts every vertex back where it started
     public void ResetMesh()
     {
         originalVertices.CopyTo(displacedVertices, 0);
@@ -94,7 +90,6 @@ public class MeshDeformer : MonoBehaviour
         }
     }
 
-    // Stat points lost per dent in a region tied to stat
     public float PointsPerDent(GameController.Stat stat)
     {
         switch (stat) {

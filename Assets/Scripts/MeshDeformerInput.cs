@@ -6,6 +6,14 @@ public class MeshDeformerInput : MonoBehaviour
     public float impulse = 10f;
     public GameObject rightFist;
     public GameObject leftFist;
+    [SerializeField] GameController gameController;
+
+    void Start()
+    {
+        if (!gameController) {
+            gameController = FindFirstObjectByType<GameController>();
+        }
+    }
 
     void HandleInput()
     {
@@ -15,7 +23,6 @@ public class MeshDeformerInput : MonoBehaviour
             MeshDeformer deformer = hit.collider.GetComponent<MeshDeformer>();
             if (deformer)
             {
-                // Swing from whichever fist is on the same side of the screen as the cursor
                 GameObject fist = Input.mousePosition.x > Screen.width / 2f ? rightFist : leftFist;
                 Vector3 punchDirection = (hit.point - fist.transform.position).normalized;
 
@@ -44,11 +51,9 @@ public class MeshDeformerInput : MonoBehaviour
         return null;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // One dent per click
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && (!gameController || gameController.AcceptingPunches))
         {
             HandleInput();
         }

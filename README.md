@@ -1,3 +1,3 @@
 # Readme
 
-A character generator
+A (subtractive) character creator.
