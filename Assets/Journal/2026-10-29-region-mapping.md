@@ -6,7 +6,7 @@ project: "Phrenologist"
 
 # Region Mapping
 
-[moved to HeadRegions.txt](../Resources/HeadRegions.txt)
+[indexes moved to HeadRegions.txt](../Resources/HeadRegions.txt)
 
 ## Stat Mapping
 

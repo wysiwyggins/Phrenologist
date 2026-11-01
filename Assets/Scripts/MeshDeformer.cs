@@ -32,7 +32,6 @@ public class MeshDeformer : MonoBehaviour
     // Indices moved by every dent since the last clear, so several clicks can paint out a region
     HashSet<int> recordedVertices = new HashSet<int>();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         deformingMesh = GetComponent<MeshFilter>().mesh;
@@ -68,15 +67,7 @@ public class MeshDeformer : MonoBehaviour
             Debug.Log($"Dent moved {changed.Count} vertices ({recordedVertices.Count} recorded total): {string.Join(", ", changed)}");
         }
 
-        deformingMesh.vertices = displacedVertices;
-        deformingMesh.RecalculateNormals();
-        deformingMesh.RecalculateBounds();
-
-        // Rebuild the collider so later clicks land on the dented surface
-        if (meshCollider) {
-            meshCollider.sharedMesh = null;
-            meshCollider.sharedMesh = deformingMesh;
-        }
+        ApplyVertices();
 
         if (gameController) {
             gameController.OnPunched(this);
@@ -87,10 +78,16 @@ public class MeshDeformer : MonoBehaviour
     public void ResetMesh()
     {
         originalVertices.CopyTo(displacedVertices, 0);
+        ApplyVertices();
+    }
+
+    void ApplyVertices()
+    {
         deformingMesh.vertices = displacedVertices;
         deformingMesh.RecalculateNormals();
         deformingMesh.RecalculateBounds();
 
+        // Rebuild the collider so later clicks land on the dented surface
         if (meshCollider) {
             meshCollider.sharedMesh = null;
             meshCollider.sharedMesh = deformingMesh;
