@@ -86,6 +86,8 @@ public class GameController : MonoBehaviour
     int punchCount = 0;
     float firstPunchTime = -1f;
     bool headFell = false;
+    // Set once "Character Created" is showing, so a click mid-count doesn't skip the reveal
+    bool characterCreated = false;
 
     // What each stat text currently shows and what it's counting toward, indexed by Stat
     readonly int[] shownStats = new int[7];
@@ -134,7 +136,8 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(resetKey) && state != RoundState.FadingIn) {
+        bool resetPressed = Input.GetKeyDown(resetKey) || (characterCreated && Input.GetMouseButtonDown(0));
+        if (resetPressed && state != RoundState.FadingIn) {
             StartCoroutine(BeginSubject(true));
         }
 
@@ -321,6 +324,7 @@ public class GameController : MonoBehaviour
         punchCount = 0;
         firstPunchTime = -1f;
         headFell = false;
+        characterCreated = false;
         uiPanel.SetActive(false);
         TextMeshProUGUI[] texts = StatTexts;
         for (int s = 1; s < texts.Length; s++) {
@@ -525,6 +529,7 @@ public class GameController : MonoBehaviour
 
     void MarkFinalized()
     {
+        characterCreated = true;
         TextMeshProUGUI[] texts = StatTexts;
         for (int s = 1; s < texts.Length; s++) {
             texts[s].color = finalizedColor;
