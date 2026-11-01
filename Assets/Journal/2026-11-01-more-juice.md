@@ -16,3 +16,9 @@ project: "Phrenologist"
 Ahhhhh and just like that it's good. The power of juice and sound. It got the first laugh out of me since I managed to punch a dent in the nose.
 
 ship it!
+
+---
+
+I realized that my builds folder was in gitignore, so the intitial builds aren't in the repo.
+
+Also updating with a finished game loop and a shorter period to get your hits in

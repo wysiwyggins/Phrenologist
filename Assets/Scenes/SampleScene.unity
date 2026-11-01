@@ -688,8 +688,8 @@ MonoBehaviour:
   tickInterval: 0.04
   tickPitchMin: 0.9
   tickPitchMax: 1.3
-  maxPunches: 10
-  timeLimit: 15
+  maxPunches: 4
+  timeLimit: 8
   finalizedColor: {r: 1, g: 0.78, b: 0.25, a: 1}
   floor: {fileID: 1448634482}
   fullVolumeCrashSpeed: 4
