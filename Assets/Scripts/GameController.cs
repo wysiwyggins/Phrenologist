@@ -74,6 +74,8 @@ public class GameController : MonoBehaviour
     [Header("Stat Rules")]
     public int minStartingStat = 15;
     public int maxStartingStat = 20;
+    // These start at 0 instead of rolling, so dents can't lower them
+    public List<Stat> statsStartingAtZero = new List<Stat> { Stat.Wisdom };
     public bool logRegions = false;
 
     readonly List<Region> regions = new List<Region>();
@@ -336,7 +338,7 @@ public class GameController : MonoBehaviour
     void RollStats()
     {
         foreach (Stat stat in System.Enum.GetValues(typeof(Stat))) {
-            startingStats[stat] = Random.Range(minStartingStat, maxStartingStat + 1);
+            startingStats[stat] = statsStartingAtZero.Contains(stat) ? 0 : Random.Range(minStartingStat, maxStartingStat + 1);
         }
         SetStats(new Dictionary<Stat, float>());
     }
