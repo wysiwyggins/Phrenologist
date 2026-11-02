@@ -1,4 +1,4 @@
-# Chiromancer
+# Phrenologist
 
 ![Create Your Character](/Assets/Textures/3F4B5CD1-A3CB-49DC-8EB1-7421CB5A371A-734-00017BA46F97FBAD.png)
 
