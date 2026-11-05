@@ -395,9 +395,11 @@ public class GameController : MonoBehaviour
         audioSource.PlayOneShot(bonks[Random.Range(0, bonks.Length)]);
 
         if (!uiPanel.activeSelf) {
-            uiPanel.SetActive(true);
-            System.Array.Clear(shownStats, 0, shownStats.Length);
+            // Start from the rolled stats so the first punch counts down from them rather than up from zero,
+            // and fill in the text before the panel appears so it never flashes stale values
+            System.Array.Copy(targetStats, shownStats, shownStats.Length);
             ShowStats();
+            uiPanel.SetActive(true);
             SetTitleAlpha(0f, titleFadeDuration);
         }
         if (firstPunchTime < 0f) {
