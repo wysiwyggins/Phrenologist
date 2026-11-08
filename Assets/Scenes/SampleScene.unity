@@ -696,6 +696,7 @@ MonoBehaviour:
   resetKey: 114
   minStartingStat: 15
   maxStartingStat: 20
+  statsStartingAtZero: 05000000
   logRegions: 0
 --- !u!1 &427022159
 GameObject:
@@ -1647,10 +1648,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.0895011
-  m_Height: 0.48018074
+  m_Radius: 0.07537052
+  m_Height: 0.48018077
   m_Direction: 1
-  m_Center: {x: -0.01, y: 0.3, z: 0.2}
+  m_Center: {x: -0.024130674, y: 0.29999998, z: 0.19999947}
 --- !u!1 &1239902504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2714,8 +2715,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3252062, y: 0.47719043, z: 0.2916835}
-  m_Center: {x: 0.15210167, y: -0.02759263, z: 0.04750621}
+  m_Size: {x: 0.3252062, y: 0.52113795, z: 0.20571761}
+  m_Center: {x: 0.15210164, y: -0.0056188405, z: 0.13491905}
 --- !u!1 &1626832517
 GameObject:
   m_ObjectHideFlags: 0
